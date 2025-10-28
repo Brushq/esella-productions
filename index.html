@@ -1,55 +1,23 @@
 <!doctype html>
 <html lang="es">
-  <style>
-  /* Animation stylée pour tous les boutons du site */
-  a, button {
-    transition: all 0.3s ease;
+<style>
+  /* Style global pour les cartes de la section Servicios */
+  .service-card{
+    position:relative;overflow:hidden;border:1px solid #1e293b;
+    background:#0f172a;border-radius:1rem;transition:all .4s ease
   }
-
-  /* Effet principal pour les boutons de type lien */
-  a.px-5, a.px-6, button {
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
+  .service-card::before{
+    content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+    background:radial-gradient(circle at center, rgba(56,189,248,.15) 0%, transparent 70%);
+    opacity:0;transform:scale(.8);transition:opacity .5s ease, transform .8s ease;z-index:0
   }
-
-  /* Halo lumineux au survol */
-  a.px-5::before, a.px-6::before, button::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, #00bfff40, #007bff40, #00bfff40);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: -1;
+  .service-card:hover::before{opacity:1;transform:scale(1)}
+  .service-card:hover{
+    transform:translateY(-5px) scale(1.02);
+    border-color:rgba(56,189,248,.6);box-shadow:0 0 25px rgba(56,189,248,.25)
   }
-
-  a.px-5:hover::before, a.px-6:hover::before, button:hover::before {
-    opacity: 1;
-    animation: gradientMove 1.5s linear infinite;
-  }
-
-  /* Animation du halo */
-  @keyframes gradientMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-  }
-
-  /* Effet de léger zoom + glow */
-  a:hover, button:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 0 15px rgba(56,189,248,0.4);
-  }
-
-  /* Rétroaction au clic */
-  a:active, button:active {
-    transform: scale(0.98);
-    box-shadow: 0 0 10px rgba(56,189,248,0.3);
-  }
+  .service-card h3,.service-card p{position:relative;z-index:1}
 </style>
-
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ESELLA PRODUCTIONS — Crece tu audiencia con contenido de alto impacto</title>
@@ -103,37 +71,27 @@
 <section id="servicios" class="border-y border-slate-800">
   <div class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold text-white">Servicios</h2>
-    <p class="text-slate-300 mt-2">
-      Desde la idea hasta la publicación: cubrimos todo el ciclo de contenido.
-    </p>
+    <p class="text-slate-300 mt-2">Desde la idea hasta la publicación: cubrimos todo el ciclo de contenido.</p>
 
     <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <!-- Producción de video -->
       <div class="service-card p-6">
         <h3 class="font-semibold text-lg text-white">Producción de video</h3>
-        <p class="text-slate-300 mt-2">
-          Guion, rodaje (opcional), edición vertical 9:16, subtítulos y miniaturas.
-        </p>
+        <p class="text-slate-300 mt-2">Guion, rodaje (opcional), edición vertical 9:16, subtítulos y miniaturas.</p>
       </div>
 
-      <!-- Edición & Motion -->
       <div class="service-card p-6">
         <h3 class="font-semibold text-lg text-white">Edición & Motion</h3>
-        <p class="text-slate-300 mt-2">
-          Cortes dinámicos, color, ritmo, gráficos y captions listos para Reels, Shorts y TikTok.
-        </p>
+        <p class="text-slate-300 mt-2">Cortes dinámicos, color, ritmo, gráficos y captions listos para Reels, Shorts y TikTok.</p>
       </div>
 
-      <!-- Programación 30 días -->
       <div class="service-card p-6">
         <h3 class="font-semibold text-lg text-white">Programación 30 días</h3>
-        <p class="text-slate-300 mt-2">
-          Calendario y publicación en Meta, TikTok y YouTube. Medición, análisis y optimización continua.
-        </p>
+        <p class="text-slate-300 mt-2">Calendario y publicación en Meta, TikTok y YouTube. Medición, análisis y optimización continua.</p>
       </div>
     </div>
   </div>
 </section>
+
 
 
   <section id="proceso">
