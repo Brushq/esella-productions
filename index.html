@@ -1,5 +1,55 @@
 <!doctype html>
 <html lang="es">
+  <style>
+  /* Animation stylée pour tous les boutons du site */
+  a, button {
+    transition: all 0.3s ease;
+  }
+
+  /* Effet principal pour les boutons de type lien */
+  a.px-5, a.px-6, button {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  /* Halo lumineux au survol */
+  a.px-5::before, a.px-6::before, button::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, #00bfff40, #007bff40, #00bfff40);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
+  a.px-5:hover::before, a.px-6:hover::before, button:hover::before {
+    opacity: 1;
+    animation: gradientMove 1.5s linear infinite;
+  }
+
+  /* Animation du halo */
+  @keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  /* Effet de léger zoom + glow */
+  a:hover, button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 15px rgba(56,189,248,0.4);
+  }
+
+  /* Rétroaction au clic */
+  a:active, button:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px rgba(56,189,248,0.3);
+  }
+</style>
+
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ESELLA PRODUCTIONS — Crece tu audiencia con contenido de alto impacto</title>
